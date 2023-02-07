@@ -1,3 +1,9 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
 # Day 5 Worksheet
 
 ```{r}
@@ -298,13 +304,26 @@ pet_split(pet_vector = survey$pets)
 
 ## Q5:
 
+s \<- unlist(survey[1,])
+
 ```{r}
-total_na <- function(survey_row = survey[1]) {
+total_na <- function(survey_row = survey[1,]) {
   
+  # grabs the row and all of its associated columns
+  sample_df <- survey_row
   
+  # converts NAs into T/F
+  sample_df <- is.na(sample_df)
   
+  # creates table
+  s_table <- table(sample_df)
+  
+  # counts the number of NAs
+  number_of_na = s_table[["TRUE"]]
+  
+  # returns output
+  return(number_of_na)
 }
 
-unlist(survey[2,])
-
+total_na(survey[7,])
 ```
