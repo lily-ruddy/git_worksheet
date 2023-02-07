@@ -1,0 +1,84 @@
+---
+title: "Objects_In_R_Wkst"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Class
+
+## Q1
+
+-   ex1: numeric
+-   ex2: character
+-   ex3: logical
+-   ex4: numeric
+
+```{r}
+# example 1
+c(TRUE, 8)
+
+# example 2
+c("TRUE", FALSE)
+
+# example 3
+c(F, F, F, T)
+
+# example 4
+c(TRUE, TRUE, TRUE, 1)
+
+```
+
+## Q2
+
+-   will result in an error
+
+```{r}
+as.numeric(c("Will", "I", "work?"))
+
+```
+
+## Q3
+
+```{r}
+test_vec = c(1, 3, 3, 7)
+class(test_vec) = "character"
+
+```
+
+-   This creates a numeric vector, then converts it into a character vector, so all the elements in the vector are characters
+
+# Attributes
+
+```{r}
+# make a named vector (weather forecast in degrees F)
+named_vec = c("Mon" = 39, "Tues" = 36, "Wed" = 44, "Thur" = 36, "Fri" = 44, "Sat" = 45, "Sun" = 37)
+named_vec
+
+```
+
+## Q4
+
+```{r}
+attr(named_vec,"day of the week") = 1:7
+named_vec
+```
+
+# Lists
+
+```{r}
+# make an example list to work with
+example_list = list("numbers" = c(1, 2, 5, 7, 3, 5),
+                    "letters" = c("y", "u", "n", "r", "t", "b"),
+                    "df" = mtcars)
+
+```
+
+## Q5
+
+```{r}
+example_list[[1]][4]
+example_list[[2]][c(1,5)] # to have 2 individual elements that use c()
+example_list[3]
+```
